@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /
+# Review preview: remove this block only after launch review.

@@ -1,0 +1,13 @@
+{
+  "name": "kinetix-fsl-website",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Static Kinetix FSL website preview",
+  "scripts": {
+    "start": "node serve.mjs",
+    "check": "node checks.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
