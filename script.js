@@ -34,11 +34,13 @@
     const next = themes[(themes.indexOf(current) + 1) % themes.length];
     const visibleLabel =
       current === "system" ? "Auto" : current === "light" ? "Light" : "Dark";
-    const label = `Theme: ${visibleLabel}. Switch to ${next}`;
+    const label = `${visibleLabel} theme. Switch to ${next}`;
     themeButton?.setAttribute("aria-label", label);
     themeButton?.setAttribute("title", label);
     const text = themeButton?.querySelector(".theme-label");
-    if (text) text.textContent = `Theme: ${visibleLabel}`;
+    if (text)
+      text.textContent =
+        current === "system" ? "Auto" : current === "light" ? "Light" : "Dark";
   };
   updateThemeLabel();
   themeButton?.addEventListener("click", () => {
@@ -104,7 +106,7 @@
   if (ready) {
     document
       .querySelectorAll("[data-release-status]")
-      .forEach((el) => (el.textContent = "Official Android APK"));
+      .forEach((el) => (el.textContent = `Android APK · ${release.version}`));
     document
       .querySelectorAll("[data-release-availability]")
       .forEach((el) => (el.textContent = "Available now"));
@@ -118,35 +120,5 @@
       checksum.hidden = false;
       checksum.textContent = `SHA-256: ${release.sha256}`;
     }
-    const footnote = document.querySelector(".release-footnote");
-    if (footnote)
-      footnote.textContent = "Check the release details before installing.";
   }
-})();
-
-// section-location-observer: keep location feedback aligned with the reading area.
-(() => {
-  const links = [...document.querySelectorAll('#primary-nav a[href^="#"]')];
-  const sections = links
-    .map((link) => ({
-      link,
-      section: document.querySelector(link.getAttribute("href")),
-    }))
-    .filter((item) => item.section);
-  if (!sections.length) return;
-
-  const update = () => {
-    const marker = window.innerHeight * 0.3;
-    const current = sections.find((item) => {
-      const rect = item.section.getBoundingClientRect();
-      return rect.top <= marker && rect.bottom > marker;
-    });
-    sections.forEach((item) => {
-      if (item === current) item.link.setAttribute("aria-current", "location");
-      else item.link.removeAttribute("aria-current");
-    });
-  };
-  window.addEventListener("scroll", update, { passive: true });
-  window.addEventListener("resize", update);
-  update();
 })();

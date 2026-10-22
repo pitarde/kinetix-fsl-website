@@ -27,17 +27,13 @@ An original, static website for the Kinetix FSL Android app. **The app is in dev
 
 The theme button cycles **Auto → Light → Dark → Auto**. Auto follows the device setting. No analytics, forms, remote fonts, cookies, or account integration are included. Only the theme preference is saved locally.
 
-### Replace illustrative placeholders
+### App screenshots
 
-Capture real app screens without private messages or personal information. Use WebP, with sensible compression and explicit width/height. Keep camera practice in **16:9 landscape**.
+Seven supplied screens are integrated in `assets/screenshots/`: dashboard, modules, camera practice, quiz, game progress, badge, and community. Portrait images preserve the full screen; below-the-fold captures open full-size in a new tab. Replace WebP files using the same names and update dimensions/alt text if their content changes.
 
-- Hero: replace `.phone-screen` contents with a real portrait `<img>`; keep the phone frame and add descriptive alt text. Use eager loading for the hero and do not stretch the screenshot.
-- Lessons: replace `.lesson-tiles`, the placeholder label, and caption with a learning-room screenshot.
-- Camera: replace `.camera-frame` contents with a landscape screenshot; remove the placeholder label only after the real capture exists.
-- Quiz/progress and community: replace their `.small-placeholder` blocks with real screenshots and descriptive alt text.
-- Use `loading="lazy"` and `decoding="async"` for below-the-fold images. Remove the “Illustrative preview” caption only when accurate.
+The landscape camera screenshot uses an AI-edited neutral illustration instead of the original person and room. The original camera photo is not included in website assets. Its visible caption identifies the illustrative camera feed. Other screenshots show the supplied development UI.
 
-The current illustrations are intentionally labeled and are not representations of the actual app UI. No third-party design assets or template were copied. The supplied logo artwork retains its original paths, colors, transforms, clipping, and white background.
+Camera edit prompt (built-in image generation): Replace the entire photographic camera feed with a pale lavender and mint default graphic, a generic indigo head-and-shoulders outline, and framing guides. Preserve the outer landscape app screen and Practice: Kamusta header. Remove detection/debug overlays and label the graphic Camera preview illustration.
 
 ## Before a public launch
 
@@ -45,7 +41,7 @@ The site currently has **noindex,nofollow** on all four pages and `Disallow: /` 
 
 Complete these items before publishing:
 
-- Replace screenshot placeholders with approved captures.
+- Review supplied screenshots and visible community content for public release; replace development captures when needed.
 - Verify the catalog, offline capabilities, Android requirements, camera-scoring coverage, and privacy claims against the actual release. Do not promise all 59 signs can be scored.
 - Supply and approve Privacy and Terms: operator/contact, age policy, retention, deletion instructions, training-data use, moderation and appeals. Remove draft notices only when finalized.
 - Add the approved public contact address to the footer and policy pages. No address has been invented.
@@ -80,11 +76,3 @@ Official references:
 - Check keyboard focus, touch targets, contrast, reduced motion, no-JavaScript reading and system theme behavior.
 - Check all pages and a nested missing URL; check browser console/network failures.
 - Target Lighthouse 90+ for performance, accessibility, and best practices. SEO will reflect intentional preview noindex until launch; record actual measurements, not assumed scores.
-
-## Professional glass redesign
-
-`design.css` is the presentation layer loaded after `styles.css`. It contains the darker hero and header, restrained frosted-glass surfaces, larger supporting typography, responsive adjustments, reduced-transparency handling, and opaque fallbacks. Edit this file for the current visual design; shared brand tokens and the original structural layout remain in `styles.css`.
-
-The header and hero use deep navy even in light mode. Reading sections follow the selected light/dark/system theme. Glass uses high-opacity fills so text does not depend on blur for contrast. There is no continuous animation or parallax.
-
-Navigation indicates the section currently in view using both an underline and `aria-current="location"`. Install links continue to open the Coming soon dialog and describe the development status for assistive technology. See `DESIGN_NOTES.md` for the HCI decisions and validation limits.

@@ -8,8 +8,9 @@ for (const page of pages) {
   const html = await readFile(path.join(root, page), "utf8");
   const ids = [...html.matchAll(/\bid="([^"]+)"/g)].map((m) => m[1]);
   if (new Set(ids).size !== ids.length) errors.push(`${page}: duplicate ids`);
-  if (!html.includes("noindex,nofollow"))
-    errors.push(`${page}: missing preview noindex`);
+  const noindex = html.includes("noindex,nofollow");
+  if (noindex !== (page === "404.html"))
+    errors.push(`${page}: only the 404 page should be noindex`);
   if ((html.match(/<h1[ >]/g) || []).length !== 1)
     errors.push(`${page}: expected one h1`);
   for (const m of html.matchAll(
@@ -37,8 +38,8 @@ for (const page of pages) {
     if (!/\balt="/.test(m[0])) errors.push(`${page}: image missing alt`);
 }
 const release = await readFile(path.join(root, "release.js"), "utf8");
-if (!release.includes("available: false"))
-  errors.push("Preview must keep release unavailable");
+if (!/available: true/.test(release) || !/sha256: "[a-f0-9]{64}"/.test(release))
+  errors.push("release.js must be available with a valid SHA-256");
 const home = await readFile(path.join(root, "index.html"), "utf8");
 if ((home.match(/class="module"/g) || []).length !== 7)
   errors.push("Expected seven learning modules");
@@ -47,5 +48,5 @@ if (errors.length) {
   process.exitCode = 1;
 } else
   console.log(
-    "PASS: four pages, local assets, navigation anchors, unique IDs, alt text, module count, and preview release state.",
+    "PASS: four pages, local assets, navigation anchors, unique IDs, alt text, module count, indexing, and release config.",
   );

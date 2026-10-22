@@ -1,41 +1,44 @@
-# Kinetix FSL — professional glass redesign
+# Kinetix FSL website handoff
 
-Implemented in `C:\Users\pitar\Documents\kinetix-fsl-website`.
+All website source is in `C:\Users\pitar\Documents\kinetix-fsl-website`.
 
-Preview: http://127.0.0.1:4173. Open the website folder in VS Code and run `npm start` if the server is not running. No dependency installation is needed.
+## Preview in VS Code
 
-## What changed
+Open that folder, then run `npm start` in the integrated terminal. No dependency installation is required. Visit http://127.0.0.1:4173. If the preview is already running, use that address directly; Ctrl+C in its terminal stops it.
 
-- Deep navy hero and translucent sticky header, mint primary actions, soft indigo accents, and lighter reading sections. Full dark mode remains available.
-- Restrained frosted-glass panels, fine borders, layered gradients, and subtle shadows. Text uses high-opacity surfaces rather than relying on blur for readability.
-- Larger supporting type, clearer headings, visible development status, consistent controls, and current-section navigation using both underline and accessible location state.
-- Keyboard focus, dialog Escape/close/focus restoration, 48px controls, reduced motion, reduced transparency, and high-contrast handling.
-- Both Install the app actions still show Coming soon. No APK, public deployment, or DNS changes.
-- Updated social artwork and editable vector source in the assets folder.
+The local preview was started during implementation. Nothing was deployed, no APK was uploaded, and no DNS settings were changed.
 
-`design.css` contains the new presentation layer; `styles.css` retains shared tokens and structural layout. `DESIGN_NOTES.md` explains the HCI decisions. All source remains in the user's requested website folder.
+## Included
 
-## Design references
+- Responsive homepage with the supplied logo converted to SVG, the brand palette, light/dark/system themes, seven expandable learning modules, and FAQ.
+- Accessible **Coming soon** dialog on both install actions. With JavaScript disabled, install actions lead to the clearly labeled coming-soon section.
+- Intentionally labeled app-screen placeholders, not invented screenshots of the real app.
+- Draft Privacy and Terms pages and a custom 404 page.
+- Social preview image, metadata, sitemap, and deliberate preview non-indexing.
+- Dependency-free Node preview server, static checks, VS Code tasks, and README editing/launch instructions.
 
-The design uses [Nielsen's usability heuristics](https://www.nngroup.com/articles/ten-usability-heuristics/) for hierarchy, consistency, feedback, recognition, and user control. [WCAG 2.2](https://www.w3.org/WAI/WCAG22/quickref/) provides the accessibility baseline. These are design and testing references, not a certification claim.
-
-## Validation — October 13, 2026
+## Verification — October 13, 2026
 
 | Check | Result |
 | --- | --- |
-| Source, local assets, links, IDs, alt text, and preview status | Passed |
+| Local assets, links, anchors, IDs, alt text, module count, preview release status | Passed |
 | Browser layout and interaction assertions | 63 passed |
-| System theme, narrow reflow, keyboard, and blocked-storage checks | 6 passed |
-| Current-section navigation and glass accessibility behavior | 8 passed |
-| Axe accessibility audits | 17 scenarios; no automated violations |
-| Mobile Lighthouse performance | 99 |
-| Mobile Lighthouse accessibility | 100 |
-| Mobile Lighthouse best practices | 100 |
-| Mobile Lighthouse SEO | 69; intentionally non-indexable preview |
-| Largest contentful paint | 1.7 seconds in the local mobile simulation |
+| Additional system-theme, reflow, keyboard, blocked-storage checks | 6 passed |
+| Axe accessibility scenarios | 17 checked, no automated violations |
+| Lighthouse mobile performance | 100 |
+| Lighthouse accessibility | 100 |
+| Lighthouse best practices | 100 |
+| Lighthouse SEO | 69 — preview intentionally blocked from indexing |
+| Largest contentful paint | 1.5 seconds in the local mobile simulation |
+| Cumulative layout shift | 0 |
+| Total blocking time | 0 milliseconds |
 
-Browser checks used Microsoft Edge (Chromium), both themes, and 360/390/768/1440px home layouts, with additional 320px and 720px reflow checks. Policy pages and 404 layouts were checked, alongside no-JavaScript behavior, dialog actions, focus return, reduced motion, stored themes, and nested 404 assets. The only expected HTTP error is the intentionally requested missing document.
+Browser testing used headless Microsoft Edge (Chromium). Home layouts were checked at 360, 390, 768, and 1440px in both themes, with additional 320px and 720px reflow checks. Privacy, Terms, and 404 pages were checked for overflow. Install dialogs, dismissal, focus restoration, theme persistence, reduced motion, all expanders, no-JavaScript navigation, and nested 404 asset loading were exercised. The nested missing-page test returns an intentional document HTTP 404; assets load successfully.
 
-The glass-specific checks cover all five navigation sections, active backdrop blur, reduced-transparency fallback, and the Coming soon dialog in forced-colors mode. An early fixed-delay navigation test ran before the browser dispatched its first scroll event; final checks wait for the observable location state and all pass.
+The Lighthouse visible-label audit also passed after the theme control's accessible name was aligned with its visible label. Automated checks do not establish complete WCAG conformance. Physical Android devices and manual screen-reader behavior were not tested. Live hosting/DNS and actual APK installation remain outside this preview milestone.
 
-No physical-device study, participant usability study, or manual screen-reader assessment was conducted. Automated results do not establish complete WCAG conformance. App screenshots remain labeled placeholders and the policy pages remain drafts.
+## Still needed before launch
+
+Real app screenshots, a tested signed APK, release metadata, confirmed app-feature claims, public contact details, and approved policy text. The root folder's README explains GitHub Pages, GitHub Releases, custom-domain setup, HTTPS, and removal of preview non-indexing.
+
+Edit `release.js` only when the final APK is ready. Its initial `available: false` setting prevents a live download link. The README also identifies the development-status copy that needs editorial updates at launch.

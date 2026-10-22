@@ -2304,3 +2304,18 @@ dialog .dialog-note {
     transform: none;
   }
 }
+
+/* Supplied app captures: retain full screens without cropping or stretching. */
+.screenshot-phone .phone-screen { padding: 0; min-height: 0; overflow: hidden; }
+.screenshot-phone img { display: block; width: 100%; height: auto; }
+.screenshot-visual { padding: 60px 24px 24px; }
+.app-capture, .camera-capture { margin: 24px auto 0; min-width: 0; text-align: center; }
+.app-capture { max-width: 240px; }
+.app-capture a, .camera-capture a { display: block; border-radius: 16px; }
+.app-capture img, .camera-capture img { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: 16px; box-shadow: var(--shadow); }
+.app-capture figcaption, .camera-capture figcaption { margin-top: 12px; font-size: 12px; line-height: 1.6; color: var(--secondary); }
+.lesson-visual .app-capture { width: min(100%, 220px); margin-top: 0; }
+.camera-capture { width: 100%; margin: 0; }
+.capture-gallery { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; margin-top: 26px; }
+.capture-gallery .app-capture { flex: 1 1 110px; max-width: 160px; margin: 0; }
+@media (max-width: 480px) { .capture-gallery .app-capture { flex-basis: 100px; } }

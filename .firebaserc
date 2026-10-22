@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "kinetixfsl-73d88"
+  },
+  "targets": {
+    "kinetixfsl-73d88": {
+      "hosting": {
+        "site": [
+          "kinetix-fsl"
+        ]
+      }
+    }
+  }
+}
