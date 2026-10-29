@@ -41,6 +41,18 @@ const release = await readFile(path.join(root, "release.js"), "utf8");
 if (!/available: true/.test(release) || !/sha256: "[a-f0-9]{64}"/.test(release))
   errors.push("release.js must be available with a valid SHA-256");
 const home = await readFile(path.join(root, "index.html"), "utf8");
+// The app's "Check for new updates" reads app-update.json: it must name the same APK as the Download button.
+try {
+  const update = JSON.parse(await readFile(path.join(root, "app-update.json"), "utf8"));
+  if (!Number.isInteger(update.versionCode) || update.versionCode <= 0)
+    errors.push("app-update.json: versionCode must be a positive whole number");
+  if (!release.includes(`"${update.apkUrl}"`) || !release.includes(`"${update.sha256}"`))
+    errors.push("app-update.json and release.js name different APKs (run tools/publish-release.mjs)");
+  if (!home.includes(`"downloadUrl": "${update.apkUrl}"`))
+    errors.push("index.html downloadUrl differs from app-update.json");
+} catch (e) {
+  errors.push(`app-update.json: ${e.message}`);
+}
 if ((home.match(/class="module"/g) || []).length !== 7)
   errors.push("Expected seven learning modules");
 if (errors.length) {
@@ -48,5 +60,5 @@ if (errors.length) {
   process.exitCode = 1;
 } else
   console.log(
-    "PASS: four pages, local assets, navigation anchors, unique IDs, alt text, module count, indexing, and release config.",
+    "PASS: four pages, local assets, navigation anchors, unique IDs, alt text, module count, indexing, release config, and app update file.",
   );

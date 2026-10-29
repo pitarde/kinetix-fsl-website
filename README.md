@@ -19,6 +19,8 @@ An original, static website for the Kinetix FSL Android app. **The app is in dev
 | `theme.js`                   | Early saved-theme selection; works even when storage is unavailable     |
 | `script.js`                  | Mobile menu, theme control, coming-soon dialog, release details         |
 | `release.js`                 | Single release configuration: availability, URL, version, size, SHA-256 |
+| `app-update.json`            | What the app's "Check for new updates" reads (same APK as `release.js`) |
+| `tools/publish-release.mjs`  | Writes `release.js`, `app-update.json` and `index.html`'s downloadUrl; run by the app repo's CI on every push to main |
 | `privacy.html`, `terms.html` | Clearly marked drafts with unresolved details                           |
 | `404.html`                   | Custom not-found page                                                   |
 | `assets/logo.svg`            | Exact path conversion of the supplied Android vector                    |

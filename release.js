@@ -1,4 +1,5 @@
-// Current download: debug preview build. Swap apkUrl/version/size/sha256 for the release APK when it is ready.
+// Written by tools/publish-release.mjs (the app repository's CI runs it on every push to main). Do not edit by hand:
+// app-update.json and the downloadUrl in index.html must name the same APK, and checks.mjs fails when they do not.
 window.KINETIX_RELEASE = Object.freeze({
   available: true,
   apkUrl:

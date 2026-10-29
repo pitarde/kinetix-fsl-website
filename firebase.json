@@ -11,6 +11,10 @@
       "package.json"
     ],
     "cleanUrls": false,
+    "redirects": [
+      { "source": "/", "destination": "https://kinetixfsl.app/", "type": 301 },
+      { "source": "/:path*", "destination": "https://kinetixfsl.app/:path*", "type": 301 }
+    ],
     "headers": [
       {
         "source": "**",
