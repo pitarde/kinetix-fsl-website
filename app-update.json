@@ -1,8 +1,8 @@
 {
-  "versionCode": 349,
-  "versionName": "1.4.349-7d6d77b",
-  "apkUrl": "https://github.com/pitarde/kinetix-fsl-website/releases/download/v1.4.349-debug/kinetix-fsl-1.4.349-debug-arm64.apk",
+  "versionCode": 350,
+  "versionName": "1.4.350-81aeae9",
+  "apkUrl": "https://github.com/pitarde/kinetix-fsl-website/releases/download/v1.4.350-debug/kinetix-fsl-1.4.350-debug-arm64.apk",
   "sizeBytes": 122659547,
-  "sha256": "27b0b0e3a016b6d05bdb878ece9eea35f1b87894c5b31dc3d3d4786cb5a7539f",
-  "notes": "• Ken's session\n• Build the oversize test files as bytes so the Worker tests fit CI memory\n• Add in-app updates and publish debug builds on every push to main\n• Ken's session\n• Ken's session\n• Ken's session\n• Ken's session: SESSION_REPORT_2026-10-26.md\n• Added New designs\n• Docs: what Karl needs from Ken, 2026-10-25\n• Handoff created for Ken's session\n• Fix rotation in landscape\n• Fix ENYE Dectection left and right\n• Fix John Doe Bug\n• Added Google account Your were borin in the settings\n• Added new Dictionary"
+  "sha256": "60c46b7e1453838ee12e3c2b7b00c4c24588648751630c3fd621a491112b94b2",
+  "notes": "• App Audit done\n• Ken's session\n• Build the oversize test files as bytes so the Worker tests fit CI memory\n• Add in-app updates and publish debug builds on every push to main\n• Ken's session\n• Ken's session\n• Ken's session\n• Ken's session: SESSION_REPORT_2026-10-26.md\n• Added New designs\n• Docs: what Karl needs from Ken, 2026-10-25\n• Handoff created for Ken's session\n• Fix rotation in landscape\n• Fix ENYE Dectection left and right\n• Fix John Doe Bug\n• Added Google account Your were borin in the settings"
 }
