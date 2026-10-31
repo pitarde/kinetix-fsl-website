@@ -1503,6 +1503,23 @@ dialog .dialog-note {
 .policy-page .policy-lead {
   font-size: 18px;
 }
+.policy-page ul {
+  padding-left: 22px;
+  margin: 0 0 16px;
+}
+.policy-page li {
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+.download-legal {
+  font-size: 12px;
+  color: #c8cadb;
+  margin-top: 14px;
+}
+.download-legal a {
+  color: #ffffff;
+  text-decoration: underline;
+}
 .draft-notice {
   border: 1px solid var(--outline-strong);
   border-left: 4px solid var(--accent);
