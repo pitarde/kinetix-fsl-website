@@ -10,7 +10,7 @@ the site (the deploy uploads only the site's own files).
 | --- | --- |
 | Every push to `main` published a **debug** build automatically | Pushing to `main` only **tests** and builds. Nothing reaches users until **you** press **Publish release** |
 | Named like `1.4.354 (debug preview)` | Named **Version 1.0.0**, then **1.0.1**, **1.0.2**, … counting up by itself |
-| Debug APK (debuggable, not shrunk) | **Release** APK: shrunk with R8, signed with the same shared key |
+| Debug APK (debuggable) | **Release** APK: the same code and files as the debug build, signed with the same shared key, not debuggable |
 
 Phones that have a debug build update to Version 1.0.0 normally through **Check for new updates**: same app, same key,
 higher internal number. Nobody has to uninstall.
@@ -94,8 +94,9 @@ gh run watch --repo pitarde/KinetixFSL --exit-status
 
 ### 3. Build a test APK for your phone (nothing is published)
 
-The release build has never run on a phone. R8 can remove code the app needs (for example what Firestore uses to
-read posts), which would make a screen crash. So test it first.
+Always try a release build on a phone before anyone gets it. (The release is no longer shrunk with R8, so it has
+the same code and files as the debug build. The shrunk test builds of 1.0.0 lost the demos and then the camera
+detection, which is why shrinking was turned off.)
 
 ```powershell
 gh workflow run publish-release.yml --repo pitarde/KinetixFSL -f test_only=true
@@ -138,9 +139,10 @@ Walk every main screen once, the way a user would:
 - Profile: your own and someone else's, Followers / Following, Edit profile
 - A community: Posts, Announcements, About, create a post
 - Inbox and a chat
-- Modules → a lesson: the **demo video plays** and the sign pictures show → **camera practice** (detection works),
-  quiz, dictionary (the release build's shrinker once removed every demo: `app/src/main/res/raw/keep.xml` keeps
-  them, and the APK is about 68 MB, not 58 MB)
+- Modules → a lesson: the **demo video plays** and the sign pictures show → **camera practice: the model detects
+  your sign** → quiz, dictionary
+- The APK is about the size of the debug build (over 100 MB). A much smaller one means something was left out:
+  don't publish it.
 - Settings: the build line pop-up, **Check for new updates**
 
 Look at the build line at the bottom of Settings: it should say **v1.0.0 (…) · release**.
@@ -211,6 +213,57 @@ the same app.
    website copy.
 6. Phones: **Check for new updates**.
 
+## Building a release APK yourself in Android Studio (to try on your phone)
+
+You can build the same release APK on your PC, for example to test a change before you push it. **Only for
+testing:** what users get must always come from **Publish release**. It creates the GitHub release and writes the
+website's update file with the APK's exact size and SHA-256; an APK uploaded by hand would be refused by the in-app
+updater.
+
+The shared signing key is your debug keystore, `C:\Users\pitar\.android\debug.keystore` (key alias
+`androiddebugkey`, passwords `android`, `Kinetix-FSL/docs/SIGNING.md`). An APK signed with it installs over the app
+on any tester's phone.
+
+### Way 1: the menu (no typing)
+
+1. Open the **Kinetix-FSL** project in Android Studio and wait for the Gradle sync to finish.
+2. **Build → Generate Signed App Bundle or APK…**
+3. Choose **APK** → **Next**.
+4. Fill in:
+   - **Key store path:** `C:\Users\pitar\.android\debug.keystore` (the folder button, or paste it)
+   - **Key store password:** `android`
+   - **Key alias:** `androiddebugkey`
+   - **Key password:** `android`
+   → **Next**.
+5. Choose **release** → **Create**.
+6. When it's done (several minutes), Android Studio shows **"APK(s) generated successfully"** → **locate**. The file
+   is `app\release\app-arm64-v8a-release.apk`, over 100 MB.
+
+### Way 2: the Terminal tab (one command, named 1.0.0)
+
+In Android Studio's **Terminal** (PowerShell), in the Kinetix-FSL folder:
+
+```powershell
+$env:KINETIX_KEYSTORE = "$env:USERPROFILE\.android\debug.keystore"
+```
+
+```powershell
+.\gradlew :app:assembleRelease "-Pkinetix.releaseVersion=1.0.0"
+```
+
+The APK is `app\build\outputs\apk\release\app-arm64-v8a-release.apk`. The `-Pkinetix.releaseVersion` part names it
+1.0.0 like a real release; without it, it is named after the commit (`1.4.NNN-abc1234`).
+
+### Install it
+
+Phone plugged in by USB, with USB debugging on:
+
+```powershell
+adb install -r app\build\outputs\apk\release\app-arm64-v8a-release.apk
+```
+
+(For Way 1, use the path Android Studio showed.) Then do the phone test (step 4 above).
+
 ## What the Publish release workflow does
 
 1. Refuses to run on any branch but `main`.
@@ -218,7 +271,7 @@ the same app.
    raised (1.0.0 when there is none yet).
 3. Writes "What's new": your text, or the commit messages since the last release.
 4. Runs the unit tests.
-5. Builds the **release** APK (R8) signed with the shared key, named with that version.
+5. Builds the **release** APK (not shrunk) signed with the shared key, named with that version.
 6. Checks that it really carries the shared key and that its versionCode is higher than what the website offers now.
 7. **Test only:** keeps the APK as a download of the run for 14 days. Stops there.
 8. **Publish:** creates the release **vX.Y.Z** on pitarde/kinetix-fsl-website with `kinetix-fsl-vX.Y.Z-arm64.apk`,
