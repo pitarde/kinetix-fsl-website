@@ -138,7 +138,9 @@ Walk every main screen once, the way a user would:
 - Profile: your own and someone else's, Followers / Following, Edit profile
 - A community: Posts, Announcements, About, create a post
 - Inbox and a chat
-- Modules → a lesson → **camera practice** (detection works), quiz, dictionary
+- Modules → a lesson: the **demo video plays** and the sign pictures show → **camera practice** (detection works),
+  quiz, dictionary (the release build's shrinker once removed every demo: `app/src/main/res/raw/keep.xml` keeps
+  them, and the APK is about 68 MB, not 58 MB)
 - Settings: the build line pop-up, **Check for new updates**
 
 Look at the build line at the bottom of Settings: it should say **v1.0.0 (…) · release**.
