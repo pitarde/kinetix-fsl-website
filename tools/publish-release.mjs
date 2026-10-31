@@ -1,13 +1,16 @@
-// Points the website and the app's "Check for new updates" at a new APK. Run by the app repository's CI
-// (pitarde/KinetixFSL, .github/workflows/ci.yml, job publish-debug) after it uploads the APK to a release here;
-// it can also be run by hand. It rewrites three files so they always name the same build:
+// Points the website and the app's "Check for new updates" at a new APK. Run by the app repository's
+// "Publish release" workflow (pitarde/KinetixFSL, .github/workflows/publish-release.yml), which someone starts by
+// hand, after it uploads the APK to a release vX.Y.Z here; it can also be run by hand. It rewrites three files so they
+// always name the same build:
 //   release.js       the Download button on the site
 //   app-update.json  what the app reads (versionCode decides whether an update is offered)
 //   index.html       the downloadUrl in the structured data
 //
-// node tools/publish-release.mjs --version-code 347 --version-name 1.4.347-a1b2c3d \
-//   --apk-url https://github.com/pitarde/kinetix-fsl-website/releases/download/v1.4.347-debug/kinetix-fsl-1.4.347-debug-arm64.apk \
-//   --size-bytes 119750656 --sha256 <64 hex> [--label "debug preview"] [--notes-file notes.txt]
+// node tools/publish-release.mjs --version-code 360 --version-name 1.0.0 --display-version "Version 1.0.0" \
+//   --apk-url https://github.com/pitarde/kinetix-fsl-website/releases/download/v1.0.0/kinetix-fsl-v1.0.0-arm64.apk \
+//   --size-bytes 119750656 --sha256 <64 hex> [--notes-file notes.txt]
+// --display-version is what the Download section shows. Without it the version name is shown, followed by
+// --label in brackets when given (the old debug builds used --label "debug preview").
 import { readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -23,7 +26,8 @@ const { values } = parseArgs({
     "apk-url": { type: "string" },
     "size-bytes": { type: "string" },
     sha256: { type: "string" },
-    label: { type: "string", default: "debug preview" },
+    "display-version": { type: "string" },
+    label: { type: "string" },
     "notes-file": { type: "string" },
   },
 });
@@ -50,14 +54,16 @@ if (values["notes-file"]) notes = (await readFile(values["notes-file"], "utf8"))
 // The site and the app both show MB as 1024 × 1024 bytes, rounded (119750656 → "114 MB").
 const size = `${Math.round(sizeBytes / 1048576)} MB`;
 const shortVersion = versionName.replace(/-[0-9a-f]{7}$/, "");
+const shownVersion =
+  values["display-version"]?.trim() || (values.label ? `${shortVersion} (${values.label})` : shortVersion);
 
-const releaseJs = `// Written by tools/publish-release.mjs (the app repository's CI runs it on every push to main). Do not edit by hand:
+const releaseJs = `// Written by tools/publish-release.mjs (the app repository's "Publish release" workflow runs it). Do not edit by hand:
 // app-update.json and the downloadUrl in index.html must name the same APK, and checks.mjs fails when they do not.
 window.KINETIX_RELEASE = Object.freeze({
   available: true,
   apkUrl:
     ${JSON.stringify(apkUrl)},
-  version: ${JSON.stringify(`${shortVersion} (${values.label})`)},
+  version: ${JSON.stringify(shownVersion)},
   size: ${JSON.stringify(size)},
   sha256: ${JSON.stringify(sha256)},
 });
