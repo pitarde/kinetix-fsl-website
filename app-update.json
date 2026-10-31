@@ -1,8 +1,8 @@
 {
-  "versionCode": 353,
-  "versionName": "1.4.353-b60a5b7",
-  "apkUrl": "https://github.com/pitarde/kinetix-fsl-website/releases/download/v1.4.353-debug/kinetix-fsl-1.4.353-debug-arm64.apk",
-  "sizeBytes": 127309657,
-  "sha256": "1254e6d4d0544e78366d01fe8a7973c2beb7d12d0421bba59435bdca391f4333",
-  "notes": "• Ken's Final debug\n• Ken's session\n• Retrain model 2 categories\n• App Audit done\n• Ken's session\n• Build the oversize test files as bytes so the Worker tests fit CI memory\n• Add in-app updates and publish debug builds on every push to main\n• Ken's session\n• Ken's session\n• Ken's session\n• Ken's session: SESSION_REPORT_2026-10-26.md\n• Added New designs\n• Docs: what Karl needs from Ken, 2026-10-25\n• Handoff created for Ken's session\n• Fix rotation in landscape"
+  "versionCode": 354,
+  "versionName": "1.4.354-3b44999",
+  "apkUrl": "https://github.com/pitarde/kinetix-fsl-website/releases/download/v1.4.354-debug/kinetix-fsl-1.4.354-debug-arm64.apk",
+  "sizeBytes": 127396169,
+  "sha256": "be6f8cf987cb43a0df7e11a9fc843a733dff460704d0fddbd05f3ce8308f5b4e",
+  "notes": "• Final session\n• Ken's Final debug\n• Ken's session\n• Retrain model 2 categories\n• App Audit done\n• Ken's session\n• Build the oversize test files as bytes so the Worker tests fit CI memory\n• Add in-app updates and publish debug builds on every push to main\n• Ken's session\n• Ken's session\n• Ken's session\n• Ken's session: SESSION_REPORT_2026-10-26.md\n• Added New designs\n• Docs: what Karl needs from Ken, 2026-10-25\n• Handoff created for Ken's session"
 }
