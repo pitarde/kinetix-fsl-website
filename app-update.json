@@ -1,8 +1,8 @@
 {
-  "versionCode": 358,
-  "versionName": "1.0.0",
-  "apkUrl": "https://github.com/pitarde/kinetix-fsl-website/releases/download/v1.0.0/kinetix-fsl-v1.0.0-arm64.apk",
+  "versionCode": 359,
+  "versionName": "1.0.1",
+  "apkUrl": "https://github.com/pitarde/kinetix-fsl-website/releases/download/v1.0.1/kinetix-fsl-v1.0.1-arm64.apk",
   "sizeBytes": 110414638,
-  "sha256": "6ffbffb4cce24047d02ffe657178ef87560657d47dddeb82bf4d762807e1d748",
-  "notes": "• Fixing apk release\n• Fix release\n• Ken's session\n• Ken's push\n• Final session\n• Ken's Final debug\n• Ken's session\n• Retrain model 2 categories\n• App Audit done\n• Ken's session\n• Build the oversize test files as bytes so the Worker tests fit CI memory\n• Add in-app updates and publish debug builds on every push to main\n• Ken's session\n• Ken's session\n• Ken's session"
+  "sha256": "d2a242637770de36cbef46c80df07edb2110fdcd91ece9c303a5139b173aa349",
+  "notes": "• Community banner: shows once, no repeat; the banner crop now matches the banner"
 }
