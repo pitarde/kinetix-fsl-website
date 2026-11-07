@@ -1,8 +1,8 @@
 {
-  "versionCode": 359,
-  "versionName": "1.0.1",
-  "apkUrl": "https://github.com/pitarde/kinetix-fsl-website/releases/download/v1.0.1/kinetix-fsl-v1.0.1-arm64.apk",
-  "sizeBytes": 110414638,
-  "sha256": "d2a242637770de36cbef46c80df07edb2110fdcd91ece9c303a5139b173aa349",
-  "notes": "• Community banner: shows once, no repeat; the banner crop now matches the banner"
+  "versionCode": 360,
+  "versionName": "1.0.2",
+  "apkUrl": "https://github.com/pitarde/kinetix-fsl-website/releases/download/v1.0.2/kinetix-fsl-v1.0.2-arm64.apk",
+  "sizeBytes": 110642406,
+  "sha256": "4ada2e4db640235d92fd753b9464708b7f6a33b73ebf07ed650a7214a0261464",
+  "notes": "• New look for the Quiz and the Dashboard\n• Inbox moved to the Community top bar\n• The app now tells you when a new version is ready\n• Age now uses your full birth date: you are an adult from your 18th birthday\n• Long-press a comment to reply, copy, report, share, edit or delete\n• Moderators can see every requested word\n• Smoother screens and many fixes"
 }
