@@ -1,8 +1,8 @@
 {
-  "versionCode": 361,
-  "versionName": "1.0.3",
-  "apkUrl": "https://github.com/pitarde/kinetix-fsl-website/releases/download/v1.0.3/kinetix-fsl-v1.0.3-arm64.apk",
+  "versionCode": 362,
+  "versionName": "1.0.4",
+  "apkUrl": "https://github.com/pitarde/kinetix-fsl-website/releases/download/v1.0.4/kinetix-fsl-v1.0.4-arm64.apk",
   "sizeBytes": 110658910,
-  "sha256": "7dbc1fa8bd1cc3b89ac3d4ea5a6fc72845dd000f7199f38c21d04c05dac8b9c5",
-  "notes": "• Checking for updates and downloading them now works on more internet connections, without a VPN\n• If the update server cannot be reached, the app says so and lets you try again"
+  "sha256": "cd51e0140a01f3a9afca5ae074a03d220d65f132445a0ce99f340242893be516",
+  "notes": "• Spelling fixes (\"Practice\")\n• Smaller fixes"
 }
