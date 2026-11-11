@@ -77,6 +77,6 @@ server.on("error", (e) => {
 });
 server.listen(port, "127.0.0.1", () =>
   console.log(
-    `Kinetix FSL preview: http://127.0.0.1:${port}\nPress Ctrl+C to stop.`,
+    `KinetixFSL preview: http://127.0.0.1:${port}\nPress Ctrl+C to stop.`,
   ),
 );

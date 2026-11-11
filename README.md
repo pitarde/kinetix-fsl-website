@@ -1,13 +1,13 @@
-# Kinetix FSL website
+# KinetixFSL website
 
-An original, static website for the Kinetix FSL Android app. **The app is in development. Every “Install the app” action opens a Coming soon dialog.** No APK is included or linked. Nothing has been published or changed in DNS.
+An original, static website for the KinetixFSL Android app. **The app is in development. Every “Install the app” action opens a Coming soon dialog.** No APK is included or linked. Nothing has been published or changed in DNS.
 
 ## Open in VS Code
 
 1. Open this entire folder with **File → Open Folder**.
 2. Open **Terminal → New Terminal** and run `npm start` (Node.js 18 or newer). There are no packages to install.
 3. Visit **http://127.0.0.1:4173**. Leave the terminal running while reviewing. Stop with Ctrl+C.
-4. Alternatively, use **Terminal → Run Task → Preview Kinetix FSL**. If you already use VS Code Live Server, opening `index.html` with it also works.
+4. Alternatively, use **Terminal → Run Task → Preview KinetixFSL**. If you already use VS Code Live Server, opening `index.html` with it also works.
 5. Run `npm run check` for local page/asset checks. You can open `index.html` directly, but HTTP preview is preferred for proper 404 behavior.
 
 ## Edit the website

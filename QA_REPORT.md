@@ -1,4 +1,4 @@
-# Kinetix FSL website handoff
+# KinetixFSL website handoff
 
 All website source is in `C:\Users\pitar\Documents\kinetix-fsl-website`.
 

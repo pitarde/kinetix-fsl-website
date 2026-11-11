@@ -1,4 +1,4 @@
-# Releasing a new version of Kinetix FSL
+# Releasing a new version of KinetixFSL
 
 How the app gets onto kinetixfsl.app as a **release APK**, so people can download it and the app's
 **Settings → Check for new updates** installs each new version. Written 2026-11-01. This file is not published on
@@ -160,7 +160,7 @@ To write the "What's new" yourself, add it (one change per line; leave it out to
 last release):
 
 ```powershell
-gh workflow run publish-release.yml --repo pitarde/KinetixFSL -f test_only=false -f notes="First release of Kinetix FSL"
+gh workflow run publish-release.yml --repo pitarde/KinetixFSL -f test_only=false -f notes="First release of KinetixFSL"
 ```
 
 Or on GitHub: **Actions → Publish release → Run workflow**, **untick Test only**, leave **Bump** on **patch**,
