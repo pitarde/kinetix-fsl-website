@@ -1,8 +1,8 @@
 {
-  "versionCode": 366,
-  "versionName": "1.0.6",
-  "apkUrl": "https://github.com/pitarde/kinetix-fsl-website/releases/download/v1.0.6/kinetix-fsl-v1.0.6-arm64.apk",
-  "sizeBytes": 110746886,
-  "sha256": "6f99e1d06d520dfb579a253930982ec141736ff17ff65e4c9d369999c9b3a216",
-  "notes": "• Choose where your photos and videos come from: when you add them to a post, pick Gallery (your photos, newest first) or Files (folders and file names).\n• Files opens in the folder you used last, so clips kept in folders are easy to find.\n• Works in Create post, Edit post and the Photo and Video shortcuts on the Community feed."
+  "versionCode": 368,
+  "versionName": "1.0.7",
+  "apkUrl": "https://github.com/pitarde/kinetix-fsl-website/releases/download/v1.0.7/kinetix-fsl-v1.0.7-arm64.apk",
+  "sizeBytes": 110799694,
+  "sha256": "ce7c6598f3ab964cab0d57c0e6b2a8c0700d7b94bef49ac859973e1dc78645ed",
+  "notes": "• Text to Gesture is easier to use: each community result is one card for its post, with the word you searched highlighted. Tap it to open the post.\n• Before you search, Text to Gesture shows your recent searches, words to try from the lessons and the newest community posts.\n• Back now goes one step at a time: from a post back to your results, then to the start of Text to Gesture.\n• Smoother screen animations in Text to Gesture."
 }
