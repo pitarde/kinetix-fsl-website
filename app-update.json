@@ -1,8 +1,8 @@
 {
-  "versionCode": 364,
-  "versionName": "1.0.5",
-  "apkUrl": "https://github.com/pitarde/kinetix-fsl-website/releases/download/v1.0.5/kinetix-fsl-v1.0.5-arm64.apk",
-  "sizeBytes": 110727662,
-  "sha256": "ca3dc9f29158c4ad1c8d6a88a071229ebdb6df6bb61f77990cf9d0834af52c5c",
-  "notes": "• What's new in 1.0.5:\n• Each post keeps its own post card. Pick a card for a post in Create post or Edit post.\n• Writing a post: the post card, hashtags, training checkbox and toolbar slide away while you type, and come back when the keyboard closes.\n• Tap an attached photo or video to view it full screen before posting.\n• Edit post now has the same Link, Photos, Videos, Camera and Record toolbar as Create post.\n• The training checkbox explanation is folded under Show more.\n• If an update cannot install, the app shows the reason Android gave.\n• The name is now written KinetixFSL everywhere."
+  "versionCode": 366,
+  "versionName": "1.0.6",
+  "apkUrl": "https://github.com/pitarde/kinetix-fsl-website/releases/download/v1.0.6/kinetix-fsl-v1.0.6-arm64.apk",
+  "sizeBytes": 110746886,
+  "sha256": "6f99e1d06d520dfb579a253930982ec141736ff17ff65e4c9d369999c9b3a216",
+  "notes": "• Choose where your photos and videos come from: when you add them to a post, pick Gallery (your photos, newest first) or Files (folders and file names).\n• Files opens in the folder you used last, so clips kept in folders are easy to find.\n• Works in Create post, Edit post and the Photo and Video shortcuts on the Community feed."
 }
