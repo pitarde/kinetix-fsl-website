@@ -1,8 +1,8 @@
 {
-  "versionCode": 368,
-  "versionName": "1.0.7",
-  "apkUrl": "https://github.com/pitarde/kinetix-fsl-website/releases/download/v1.0.7/kinetix-fsl-v1.0.7-arm64.apk",
-  "sizeBytes": 110799694,
-  "sha256": "ce7c6598f3ab964cab0d57c0e6b2a8c0700d7b94bef49ac859973e1dc78645ed",
-  "notes": "• Text to Gesture is easier to use: each community result is one card for its post, with the word you searched highlighted. Tap it to open the post.\n• Before you search, Text to Gesture shows your recent searches, words to try from the lessons and the newest community posts.\n• Back now goes one step at a time: from a post back to your results, then to the start of Text to Gesture.\n• Smoother screen animations in Text to Gesture."
+  "versionCode": 371,
+  "versionName": "1.0.8",
+  "apkUrl": "https://github.com/pitarde/kinetix-fsl-website/releases/download/v1.0.8/kinetix-fsl-v1.0.8-arm64.apk",
+  "sizeBytes": 110923038,
+  "sha256": "54a8a2356ca1e3273abbc7d27a4e8eab620dcc22f4f98ba5c56fed1df9f7979e",
+  "notes": "• Home Feed search is now its own screen: recent searches, then Users, Communities, Posts and Related posts. Pull down to refresh the results.\n• Community search shows only that community's members and posts.\n• Discover communities: search finds community names as well as topics.\n• Word lessons have tips for doing the sign (tap Show tips).\n• The Alphabet L no longer accepts a wrong hand shape.\n• Modules: Back clears your search first.\n• Fixed: the screen could freeze after closing a menu.\n• Fixed: an edited post's new video now shows right away.\n• The Inbox button is now a message icon."
 }
