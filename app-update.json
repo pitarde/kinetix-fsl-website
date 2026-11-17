@@ -1,8 +1,8 @@
 {
-  "versionCode": 371,
-  "versionName": "1.0.8",
-  "apkUrl": "https://github.com/pitarde/kinetix-fsl-website/releases/download/v1.0.8/kinetix-fsl-v1.0.8-arm64.apk",
+  "versionCode": 372,
+  "versionName": "1.0.9",
+  "apkUrl": "https://github.com/pitarde/kinetix-fsl-website/releases/download/v1.0.9/kinetix-fsl-v1.0.9-arm64.apk",
   "sizeBytes": 110923038,
-  "sha256": "54a8a2356ca1e3273abbc7d27a4e8eab620dcc22f4f98ba5c56fed1df9f7979e",
-  "notes": "• Home Feed search is now its own screen: recent searches, then Users, Communities, Posts and Related posts. Pull down to refresh the results.\n• Community search shows only that community's members and posts.\n• Discover communities: search finds community names as well as topics.\n• Word lessons have tips for doing the sign (tap Show tips).\n• The Alphabet L no longer accepts a wrong hand shape.\n• Modules: Back clears your search first.\n• Fixed: the screen could freeze after closing a menu.\n• Fixed: an edited post's new video now shows right away.\n• The Inbox button is now a message icon."
+  "sha256": "2c408c0d62398d102fb861ab3527d0620700e452be6e96fd463d8ffcdc66811a",
+  "notes": "• Alphabet and Numbers practice: wrong hand shapes are rejected better, with both the right and the left hand."
 }
