@@ -314,3 +314,6 @@ details a { text-decoration-color: var(--mint); text-underline-offset: 4px; text
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
 }
+
+/* the English home page stays hidden while lang.js swaps in the Filipino one */
+html.lang-swapping body { visibility: hidden; }
