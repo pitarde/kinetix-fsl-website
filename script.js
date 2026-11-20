@@ -1,15 +1,34 @@
 (() => {
+  // Words the script puts on the page. The Filipino page (lang="fil") gets its own.
+  const FIL = document.documentElement.lang === "fil";
+  const T = FIL
+    ? {
+        openNav: "Buksan ang menu",
+        closeNav: "Isara ang menu",
+        theme: (name, next) => `Tema: ${name}. Lumipat sa ${next}`,
+        themeTitle: (name) => `Tema: ${name}`,
+        names: { system: "Awtomatiko", light: "Maliwanag", dark: "Madilim" },
+        version: "Bersyon",
+      }
+    : {
+        openNav: "Open navigation",
+        closeNav: "Close navigation",
+        theme: (name, next) => `Theme: ${name}. Switch to ${next}`,
+        themeTitle: (name) => `Theme: ${name}`,
+        names: { system: "Auto", light: "Light", dark: "Dark" },
+        version: "Version",
+      };
   const nav = document.querySelector("#primary-nav");
   const menu = document.querySelector(".menu-toggle");
   const closeMenu = () => {
     menu?.setAttribute("aria-expanded", "false");
-    menu?.setAttribute("aria-label", "Open navigation");
+    menu?.setAttribute("aria-label", T.openNav);
     nav?.classList.remove("is-open");
   };
   menu?.addEventListener("click", () => {
     const open = menu.getAttribute("aria-expanded") !== "true";
     menu.setAttribute("aria-expanded", String(open));
-    menu.setAttribute("aria-label", open ? "Close navigation" : "Open navigation");
+    menu.setAttribute("aria-label", open ? T.closeNav : T.openNav);
     nav.classList.toggle("is-open", open);
   });
   nav?.querySelectorAll("a").forEach((a) => a.addEventListener("click", closeMenu));
@@ -23,12 +42,12 @@
   // Theme: system, light, dark (same storage key as before)
   const themeButton = document.querySelector(".theme-toggle");
   const themes = ["system", "light", "dark"];
-  const names = { system: "Auto", light: "Light", dark: "Dark" };
+  const names = T.names;
   const label = () => {
     const current = document.documentElement.dataset.theme || "system";
     const next = themes[(themes.indexOf(current) + 1) % themes.length];
-    themeButton?.setAttribute("aria-label", `Theme: ${names[current]}. Switch to ${names[next]}`);
-    themeButton?.setAttribute("title", `Theme: ${names[current]}`);
+    themeButton?.setAttribute("aria-label", T.theme(names[current], names[next]));
+    themeButton?.setAttribute("title", T.themeTitle(names[current]));
     const text = themeButton?.querySelector(".theme-label");
     if (text) text.textContent = names[current];
   };
@@ -62,7 +81,7 @@
     const setPaused = (paused) => {
       carousel.classList.toggle("is-paused", paused);
       toggle.setAttribute("aria-pressed", String(paused));
-      toggle.textContent = paused ? "Play the screenshots" : "Pause the screenshots";
+      toggle.textContent = paused ? toggle.dataset.play || "Play the screenshots" : toggle.dataset.pause || "Pause the screenshots";
     };
     setPaused(reduce.matches);
     toggle.addEventListener("click", () => setPaused(!carousel.classList.contains("is-paused")));
@@ -84,7 +103,8 @@
     if (!link.closest(".site-header")) link.href = release.apkUrl;
   });
   document.querySelectorAll("[data-release-version]").forEach((el) => {
-    const v = el.dataset.releaseVersion === "short" ? release.version.replace(/^Version\s+/, "") : release.version;
+    const plain = release.version.replace(/^Version\s+/, "");
+    const v = el.dataset.releaseVersion === "short" ? plain : `${T.version} ${plain}`;
     el.textContent = `${v} · ${release.size}`;
   });
   const checksum = document.querySelector(".release-checksum");

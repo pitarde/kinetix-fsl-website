@@ -2,7 +2,7 @@ import { readFile, access } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 const root = path.dirname(fileURLToPath(import.meta.url));
-const pages = ["index.html", "privacy.html", "terms.html", "404.html"];
+const pages = ["index.html", "fil.html", "privacy.html", "terms.html", "404.html"];
 const errors = [];
 for (const page of pages) {
   const html = await readFile(path.join(root, page), "utf8");

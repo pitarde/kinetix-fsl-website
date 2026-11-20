@@ -101,11 +101,13 @@ p + p { margin-top: 1em; }
 #primary-nav { display: flex; gap: 24px; font-size: 1rem; }
 #primary-nav a { text-decoration: none; color: var(--muted); padding: 6px 0; border-bottom: 2px solid transparent; }
 #primary-nav a:hover { color: var(--ink); border-color: var(--mint); }
+.lang-switch { display: inline-flex; align-items: center; min-height: 40px; padding: 0 14px; border: 1px solid var(--line); border-radius: 999px; font-size: 0.9rem; text-decoration: none; color: var(--ink); }
+.lang-switch:hover { border-color: var(--indigo); }
 .theme-toggle { border: 1px solid var(--line); background: transparent; border-radius: 999px; padding: 6px 14px; font-size: 0.9rem; min-height: 40px; }
 .menu-toggle { display: none; border: 1px solid var(--line); background: transparent; border-radius: 10px; width: 44px; height: 44px; align-items: center; justify-content: center; }
 
 /* buttons and links */
-.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 0 28px; background: var(--indigo); color: var(--paper); border-radius: 12px; font: 700 1.05rem var(--display); text-decoration: none; letter-spacing: 0; }
+.btn { white-space: nowrap; display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 0 28px; background: var(--indigo); color: var(--paper); border-radius: 12px; font: 700 1.05rem var(--display); text-decoration: none; letter-spacing: 0; }
 html[data-theme="dark"] .btn { color: #12142b; }
 @media (prefers-color-scheme: dark) { html:not([data-theme="light"]) .btn { color: #12142b; } }
 .btn:hover { filter: brightness(1.08); }
@@ -258,13 +260,18 @@ details a { text-decoration-color: var(--mint); text-underline-offset: 4px; text
 .foot nav a:hover { color: var(--ink); }
 .foot p { font-size: 0.95rem; }
 
-/* small screens */
-@media (max-width: 880px) {
+/* header collapses to a menu before the Filipino labels can wrap */
+#primary-nav a { white-space: nowrap; }
+@media (max-width: 1040px) {
   .menu-toggle { display: inline-flex; }
   #primary-nav { display: none; position: absolute; left: 0; right: 0; top: 100%; flex-direction: column; gap: 0; background: var(--paper); border-bottom: 1px solid var(--line); padding: 8px var(--gutter) 16px; }
   #primary-nav.is-open { display: flex; }
   #primary-nav a { padding: 14px 0; border-bottom: 1px solid var(--line); font-size: 1.1rem; }
   .bar .btn-small { display: none; }
+}
+
+/* small screens */
+@media (max-width: 880px) {
   .hero-grid, .limits, .faq, .download-grid { grid-template-columns: 1fr; }
   .hero-visual { margin-top: 12px; }
   .trace { width: min(560px, 130%); }
