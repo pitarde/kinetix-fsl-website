@@ -112,8 +112,8 @@ html[data-theme="dark"] .btn { color: #12142b; }
 @media (prefers-color-scheme: dark) { html:not([data-theme="light"]) .btn { color: #12142b; } }
 .btn:hover { filter: brightness(1.08); }
 .btn-small { min-height: 42px; padding: 0 18px; font-size: 0.95rem; }
-.btn-light { background: var(--paper); color: #1e224f; }
-html[data-theme="dark"] .btn-light, html:not([data-theme="light"]) .btn-light { color: #1e224f; }
+/* the button on the indigo download field is light in every theme, with dark text */
+.download .btn.btn-light, html[data-theme="dark"] .download .btn.btn-light { background: #f5f4fb; color: #1e224f; }
 .text-link { font-weight: 600; text-decoration-thickness: 2px; text-underline-offset: 5px; text-decoration-color: var(--mint); }
 .text-link:hover { text-decoration-color: var(--indigo); }
 
