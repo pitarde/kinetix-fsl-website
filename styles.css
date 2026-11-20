@@ -279,6 +279,24 @@ details a { text-decoration-color: var(--mint); text-underline-offset: 4px; text
   .bar .btn-small { display: none; }
 }
 
+/* narrow phones: brand, language, theme and menu buttons share one row without overlapping */
+@media (max-width: 480px) {
+  .bar { gap: 8px; }
+  .brand { gap: 8px; font-size: 1.05rem; min-width: 0; }
+  .brand img { width: 32px; height: 32px; }
+  .lang-switch, .theme-toggle { padding: 0 10px; font-size: 0.85rem; }
+  .menu-toggle { width: 40px; height: 40px; }
+}
+@media (max-width: 400px) {
+  .theme-toggle { padding: 0 10px; }
+  .theme-label { font-size: 0; }
+  .theme-label::before { content: ""; display: inline-block; width: 16px; height: 16px; border: 2px solid currentColor; border-radius: 50%; background: linear-gradient(90deg, currentColor 50%, transparent 50%); vertical-align: middle; }
+}
+@media (max-width: 360px) {
+  .brand { font-size: 0.95rem; gap: 6px; }
+  .lang-switch { padding: 0 8px; font-size: 0.8rem; }
+}
+
 /* small screens */
 @media (max-width: 880px) {
   .hero-grid, .limits, .faq, .download-grid { grid-template-columns: 1fr; }
