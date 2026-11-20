@@ -203,14 +203,23 @@ html[data-theme="dark"] .count { color: var(--mint); }
 }
 
 /* community modules, set apart from the seven official ones */
-.community-block { margin-top: 36px; padding-left: 22px; border-left: 4px solid var(--mint); display: grid; gap: 10px; }
-.community-block p { max-width: 70ch; }
+.community-block { margin-top: 36px; padding-left: 22px; border-left: 4px solid var(--mint); display: grid; grid-template-columns: minmax(0, 1fr) 250px; gap: 12px 44px; align-items: start; }
+.community-text { display: grid; gap: 10px; }
+.community-text p { max-width: 62ch; }
+.community-shot { width: 250px; }
+
+/* looping app videos, with a button to pause each one */
+.frame video { display: block; width: 100%; height: auto; border-radius: 6px; background: var(--tint); }
+.vid-toggle { position: absolute; top: 24px; right: 24px; width: 40px; height: 40px; display: grid; place-items: center; border: 0; border-radius: 50%; background: rgba(30, 34, 79, 0.82); color: #fff; }
+.vid-toggle:hover { background: rgba(30, 34, 79, 1); }
+.vid-toggle svg { width: 18px; height: 18px; }
 
 /* offline split */
 .split { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-top: 2px solid var(--ink); }
 .split > div { padding: 28px 0 8px; }
 .split > div + div { padding-left: clamp(24px, 5vw, 64px); border-left: 1px solid var(--line); }
-.split-shot { width: min(100%, 190px); margin-bottom: 22px; }
+.split-shot { width: min(100%, 210px); margin-bottom: 22px; }
+.frame.split-shot:has(> figcaption) { padding-bottom: 68px; }
 .plain { margin: 16px 0 18px; display: grid; gap: 6px; }
 .plain li { padding: 8px 0; border-bottom: 1px solid var(--line); color: var(--ink); }
 .note { font-size: 0.98rem; }
@@ -280,6 +289,7 @@ details a { text-decoration-color: var(--mint); text-underline-offset: 4px; text
   .module-head { grid-template-columns: 1fr auto; }
   .module-head p { grid-column: 1 / -1; order: 3; }
   .split { grid-template-columns: 1fr; }
+  .community-block { grid-template-columns: 1fr; padding-left: 16px; }
   .split > div + div { padding-left: 0; border-left: 0; border-top: 1px solid var(--line); margin-top: 20px; }
   .facts > div { grid-template-columns: 1fr; gap: 2px; }
 }

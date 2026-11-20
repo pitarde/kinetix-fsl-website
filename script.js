@@ -9,6 +9,8 @@
         themeTitle: (name) => `Tema: ${name}`,
         names: { system: "Awtomatiko", light: "Maliwanag", dark: "Madilim" },
         version: "Bersyon",
+        pauseVideo: "I-pause ang video",
+        playVideo: "I-play ang video",
       }
     : {
         openNav: "Open navigation",
@@ -17,6 +19,8 @@
         themeTitle: (name) => `Theme: ${name}`,
         names: { system: "Auto", light: "Light", dark: "Dark" },
         version: "Version",
+        pauseVideo: "Pause the video",
+        playVideo: "Play the video",
       };
   const nav = document.querySelector("#primary-nav");
   const menu = document.querySelector(".menu-toggle");
@@ -59,6 +63,39 @@
     try { localStorage.setItem("kinetix-theme", next); } catch {}
     label();
   });
+
+  // Looping app videos: they play only while on screen, each has its own pause
+  // button, and they stay still (poster picture) for people who ask for less motion.
+  (() => {
+    const videos = document.querySelectorAll("video.loop-video");
+    if (!videos.length) return;
+    const reduce = matchMedia("(prefers-reduced-motion: reduce)");
+    const PAUSE = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>';
+    const PLAY = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>';
+    videos.forEach((video) => {
+      let userPaused = reduce.matches;
+      let visible = false;
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "vid-toggle";
+      const sync = () => {
+        button.innerHTML = userPaused ? PLAY : PAUSE;
+        button.setAttribute("aria-label", userPaused ? T.playVideo : T.pauseVideo);
+        if (userPaused || !visible) video.pause();
+        else video.play().catch(() => {});
+      };
+      button.addEventListener("click", () => {
+        userPaused = !userPaused;
+        sync();
+      });
+      video.insertAdjacentElement("afterend", button);
+      new IntersectionObserver((entries) => {
+        visible = entries[0].isIntersecting;
+        sync();
+      }, { threshold: 0.35 }).observe(video);
+      sync();
+    });
+  })();
 
   // Screenshot carousel: moves slowly and loops. It stops on hover or keyboard
   // focus, has a pause button, and stays still for people who ask for less motion.
