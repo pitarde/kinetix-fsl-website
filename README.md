@@ -1,6 +1,6 @@
 # KinetixFSL website
 
-An original, static website for the KinetixFSL Android app. **The app is in development. Every “Install the app” action opens a Coming soon dialog.** No APK is included or linked. Nothing has been published or changed in DNS.
+An original, static website for the KinetixFSL Android app, live at https://kinetixfsl.app (GitHub Pages, deployed from `main`). The Download buttons point at the newest release APK; the release workflow in the app repository keeps them current (see "What the release workflow depends on" below). The older notes further down this file (launch plan, DNS) are historical.
 
 ## Open in VS Code
 
@@ -14,20 +14,34 @@ An original, static website for the KinetixFSL Android app. **The app is in deve
 
 | File                         | Purpose                                                                 |
 | ---------------------------- | ----------------------------------------------------------------------- |
-| `index.html`                 | Homepage sections, module lists, FAQ, install dialog                    |
+| `index.html`                 | English homepage: sections, module lists, community modules, FAQ        |
+| `fil.html`                   | Filipino homepage: the same sections and layout, translated. When you change text in `index.html`, change it here too |
 | `styles.css`                 | Full palette, responsive layouts, light/dark themes                     |
 | `theme.js`                   | Early saved-theme selection; works even when storage is unavailable     |
-| `script.js`                  | Mobile menu, theme control, coming-soon dialog, release details         |
+| `script.js`                  | Mobile menu, theme control, looping videos, screenshot carousel, release details; picks Filipino words when the page is `lang="fil"` |
 | `release.js`                 | Single release configuration: availability, URL, version, size, SHA-256 |
 | `app-update.json`            | What the app's "Check for new updates" reads (same APK as `release.js`) |
 | `tools/publish-release.mjs`  | Writes `release.js`, `app-update.json` and `index.html`'s downloadUrl; run by the app repo's CI on every push to main |
 | `privacy.html`, `terms.html` | Clearly marked drafts with unresolved details                           |
 | `404.html`                   | Custom not-found page                                                   |
+| `assets/fonts/`              | Bricolage Grotesque and Atkinson Hyperlegible Next (latin subset, SIL Open Font License), hosted here so there are no remote font requests |
+| `assets/video/`              | Three silent 480 px loops cut from the 2026-11-15 phone recordings (practice, offline, community modules) with a `-poster.webp` still each; each plays only on screen and has a pause button |
 | `assets/logo.svg`            | Exact path conversion of the supplied Android vector                    |
 | `assets/social-preview.png`  | Original 1200×630 social artwork                                        |
 | `serve.mjs`, `checks.mjs`    | Dependency-free local preview and static checks                         |
 
 The theme button cycles **Auto → Light → Dark → Auto**. Auto follows the device setting. No analytics, forms, remote fonts, cookies, or account integration are included. Only the theme preference is saved locally.
+
+### What the release workflow depends on
+
+The app repository's "Publish release" workflow clones this repository, runs `tools/publish-release.mjs` and `node checks.mjs`, then commits `release.js`, `app-update.json` and `index.html` as kinetix-release-bot. A redesign must keep:
+
+- `tools/publish-release.mjs` (the workflow greps it for `"display-version"`), `release.js` and `app-update.json` as they are.
+- In `index.html`: the JSON-LD `"downloadUrl": "..."` line (the script rewrites it), exactly one `<h1>`, and exactly seven `class="module"` entries (the seven official modules; the community block uses a different class).
+- `node checks.mjs` passing on every page it lists (unique ids, one h1, working links, alt text on `<img>`).
+- New files either under `assets/` or added to the copy list in `.github/workflows/pages.yml`, because Pages publishes only that list.
+
+`fil.html` has no `downloadUrl` of its own: its buttons read `release.js` in the browser like the English page.
 
 ### App screenshots
 
@@ -37,7 +51,7 @@ The landscape camera screenshot uses an AI-edited neutral illustration instead o
 
 Camera edit prompt (built-in image generation): Replace the entire photographic camera feed with a pale lavender and mint default graphic, a generic indigo head-and-shoulders outline, and framing guides. Preserve the outer landscape app screen and Practice: Kamusta header. Remove detection/debug overlays and label the graphic Camera preview illustration.
 
-## Before a public launch
+## Before a public launch (historical)
 
 The site currently has **noindex,nofollow** on all four pages and `Disallow: /` in robots.txt. These are indexing directives, not access controls. Do not treat a deployed draft as private.
 
