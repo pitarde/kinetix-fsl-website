@@ -32,6 +32,7 @@ jobs:
           mkdir _site
           cp index.html fil.html privacy.html terms.html 404.html styles.css script.js theme.js release.js app-update.json robots.txt sitemap.xml CNAME .nojekyll _site/
           cp -r assets _site/assets
+          cp -r fil privacy terms _site/
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

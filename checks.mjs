@@ -2,7 +2,8 @@ import { readFile, access } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 const root = path.dirname(fileURLToPath(import.meta.url));
-const pages = ["index.html", "fil.html", "privacy.html", "terms.html", "404.html"];
+// Pages live at clean addresses (/, /fil/, /privacy/, /terms/); the old .html addresses are redirect stubs (checked below).
+const pages = ["index.html", "fil/index.html", "privacy/index.html", "terms/index.html", "404.html"];
 const errors = [];
 for (const page of pages) {
   const html = await readFile(path.join(root, page), "utf8");
@@ -23,19 +24,30 @@ for (const page of pages) {
       if (hash && !ids.includes(hash)) errors.push(`${page}: missing #${hash}`);
       continue;
     }
+    if (file.endsWith(".html") && page !== "404.html" && !file.startsWith("/404"))
+      errors.push(`${page}: link to ${url} shows the file name; use the clean address (/, /fil/, /privacy/, /terms/)`);
+    let rel = file.startsWith("/") ? file.slice(1) : path.join(path.dirname(page), file);
+    if (rel === "" || rel.endsWith("/") || rel.endsWith(path.sep)) rel = path.join(rel, "index.html");
     try {
-      await access(path.join(root, file));
+      await access(path.join(root, rel));
     } catch {
       errors.push(`${page}: missing ${file}`);
+      continue;
     }
-    if (hash && file.endsWith(".html")) {
-      const other = await readFile(path.join(root, file), "utf8");
+    if (hash && rel.endsWith(".html")) {
+      const other = await readFile(path.join(root, rel), "utf8");
       if (!other.includes(`id="${hash}"`))
         errors.push(`${page}: missing ${url}`);
     }
   }
   for (const m of html.matchAll(/<img\b[^>]*>/g))
     if (!/\balt="/.test(m[0])) errors.push(`${page}: image missing alt`);
+}
+// The old addresses stay alive as redirect stubs, so links already shared keep working.
+for (const [stub, target] of [["fil.html", "/fil/"], ["privacy.html", "/privacy/"], ["terms.html", "/terms/"]]) {
+  const html = await readFile(path.join(root, stub), "utf8");
+  if (!html.includes(`url=${target}`) || !html.includes(`href="https://kinetixfsl.app${target}"`) || !html.includes("noindex"))
+    errors.push(`${stub}: must redirect to ${target} (meta refresh, canonical, noindex)`);
 }
 const release = await readFile(path.join(root, "release.js"), "utf8");
 if (!/available: true/.test(release) || !/sha256: "[a-f0-9]{64}"/.test(release))

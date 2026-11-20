@@ -15,14 +15,15 @@ An original, static website for the KinetixFSL Android app, live at https://kine
 | File                         | Purpose                                                                 |
 | ---------------------------- | ----------------------------------------------------------------------- |
 | `index.html`                 | English homepage: sections, module lists, community modules, FAQ        |
-| `fil.html`                   | Filipino homepage: the same sections and layout, translated. When you change text in `index.html`, change it here too |
+| `fil/index.html`             | Filipino homepage, served at `/fil/`: the same sections and layout, translated. When you change text in `index.html`, change it here too |
 | `styles.css`                 | Full palette, responsive layouts, light/dark themes                     |
 | `theme.js`                   | Early saved-theme selection; works even when storage is unavailable     |
 | `script.js`                  | Mobile menu, theme control, looping videos, screenshot carousel, release details; picks Filipino words when the page is `lang="fil"` |
 | `release.js`                 | Single release configuration: availability, URL, version, size, SHA-256 |
 | `app-update.json`            | What the app's "Check for new updates" reads (same APK as `release.js`) |
 | `tools/publish-release.mjs`  | Writes `release.js`, `app-update.json` and `index.html`'s downloadUrl; run by the app repo's CI on every push to main |
-| `privacy.html`, `terms.html` | Clearly marked drafts with unresolved details                           |
+| `privacy/index.html`, `terms/index.html` | Privacy notice and terms, served at `/privacy/` and `/terms/` (clearly marked drafts with unresolved details) |
+| `fil.html`, `privacy.html`, `terms.html` | Redirect stubs for the old addresses; `checks.mjs` makes sure they still point at the clean ones. Pages use clean addresses (`/`, `/fil/`, `/privacy/`, `/terms/`) and root-relative asset paths; never link to a `.html` file name |
 | `404.html`                   | Custom not-found page                                                   |
 | `assets/fonts/`              | Bricolage Grotesque and Atkinson Hyperlegible Next (latin subset, SIL Open Font License), hosted here so there are no remote font requests |
 | `assets/video/`              | Three silent 480 px loops cut from the 2026-11-15 phone recordings (practice, offline, community modules) with a `-poster.webp` still each; each plays only on screen and has a pause button |
@@ -41,7 +42,7 @@ The app repository's "Publish release" workflow clones this repository, runs `to
 - `node checks.mjs` passing on every page it lists (unique ids, one h1, working links, alt text on `<img>`).
 - New files either under `assets/` or added to the copy list in `.github/workflows/pages.yml`, because Pages publishes only that list.
 
-`fil.html` has no `downloadUrl` of its own: its buttons read `release.js` in the browser like the English page.
+`fil/index.html` has no `downloadUrl` of its own: its buttons read `release.js` in the browser like the English page.
 
 ### App screenshots
 
