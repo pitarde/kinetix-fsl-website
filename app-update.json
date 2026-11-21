@@ -1,8 +1,8 @@
 {
-  "versionCode": 372,
-  "versionName": "1.0.9",
-  "apkUrl": "https://github.com/pitarde/kinetix-fsl-website/releases/download/v1.0.9/kinetix-fsl-v1.0.9-arm64.apk",
-  "sizeBytes": 110923038,
-  "sha256": "2c408c0d62398d102fb861ab3527d0620700e452be6e96fd463d8ffcdc66811a",
-  "notes": "• Alphabet and Numbers practice: wrong hand shapes are rejected better, with both the right and the left hand."
+  "versionCode": 377,
+  "versionName": "1.0.10",
+  "apkUrl": "https://github.com/pitarde/kinetix-fsl-website/releases/download/v1.0.10/kinetix-fsl-v1.0.10-arm64.apk",
+  "sizeBytes": 111029098,
+  "sha256": "8abab427013f351132832770ad8047e07348728da84f16f6238b7713c0f1c798",
+  "notes": "• Switch account: change between accounts used on this phone from the side menu. Swipe the side menu open from the left half of the screen. Challenge mode is now 10 seconds with a new fire timer. Shared links now use go.kinetixfsl.app. Fixes: Oo/Hindi colours stay after leaving the feed, the penalty lock stays after signing in again, the chat rises with the keyboard, the profile keeps its place, and more."
 }
