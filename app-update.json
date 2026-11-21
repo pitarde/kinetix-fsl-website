@@ -1,8 +1,8 @@
 {
-  "versionCode": 378,
-  "versionName": "1.0.11",
-  "apkUrl": "https://github.com/pitarde/kinetix-fsl-website/releases/download/v1.0.11/kinetix-fsl-v1.0.11-arm64.apk",
-  "sizeBytes": 111029098,
-  "sha256": "9778ff5001b137cd722f7d218e85947b53e0070a85710e2c5bf0ba0f7e37e0ad",
-  "notes": "• Your progress now comes back safely after reinstalling the app. Smoother feed scrolling, side menu fixes, take a photo for a comment, and new top bar colours on Search and Switch account."
+  "versionCode": 379,
+  "versionName": "1.0.12",
+  "apkUrl": "https://github.com/pitarde/kinetix-fsl-website/releases/download/v1.0.12/kinetix-fsl-v1.0.12-arm64.apk",
+  "sizeBytes": 111045482,
+  "sha256": "6ae35a0f35266df05440846a1a08896ea4a5c22e081143dfeb6c99232a4783e7",
+  "notes": "• Faster, lighter community: the feed loads older posts more efficiently, your reactions show at once, and the app uses less data in the background."
 }
