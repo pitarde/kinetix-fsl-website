@@ -1,8 +1,8 @@
 {
-  "versionCode": 377,
-  "versionName": "1.0.10",
-  "apkUrl": "https://github.com/pitarde/kinetix-fsl-website/releases/download/v1.0.10/kinetix-fsl-v1.0.10-arm64.apk",
+  "versionCode": 378,
+  "versionName": "1.0.11",
+  "apkUrl": "https://github.com/pitarde/kinetix-fsl-website/releases/download/v1.0.11/kinetix-fsl-v1.0.11-arm64.apk",
   "sizeBytes": 111029098,
-  "sha256": "8abab427013f351132832770ad8047e07348728da84f16f6238b7713c0f1c798",
-  "notes": "• Switch account: change between accounts used on this phone from the side menu. Swipe the side menu open from the left half of the screen. Challenge mode is now 10 seconds with a new fire timer. Shared links now use go.kinetixfsl.app. Fixes: Oo/Hindi colours stay after leaving the feed, the penalty lock stays after signing in again, the chat rises with the keyboard, the profile keeps its place, and more."
+  "sha256": "9778ff5001b137cd722f7d218e85947b53e0070a85710e2c5bf0ba0f7e37e0ad",
+  "notes": "• Your progress now comes back safely after reinstalling the app. Smoother feed scrolling, side menu fixes, take a photo for a comment, and new top bar colours on Search and Switch account."
 }
