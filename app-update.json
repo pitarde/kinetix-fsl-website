@@ -1,8 +1,8 @@
 {
-  "versionCode": 379,
-  "versionName": "1.0.12",
-  "apkUrl": "https://github.com/pitarde/kinetix-fsl-website/releases/download/v1.0.12/kinetix-fsl-v1.0.12-arm64.apk",
-  "sizeBytes": 111045482,
-  "sha256": "6ae35a0f35266df05440846a1a08896ea4a5c22e081143dfeb6c99232a4783e7",
-  "notes": "• Faster, lighter community: the feed loads older posts more efficiently, your reactions show at once, and the app uses less data in the background."
+  "versionCode": 380,
+  "versionName": "1.0.13",
+  "apkUrl": "https://github.com/pitarde/kinetix-fsl-website/releases/download/v1.0.13/kinetix-fsl-v1.0.13-arm64.apk",
+  "sizeBytes": 111061866,
+  "sha256": "635b57c5e2f6571d99eb2f1b985c63b3de69c78e4cfad66d29de3661eb8f274b",
+  "notes": "• Fixed: reactions, comments, shares and reports now update their counts on every post, also further down the feed."
 }
