@@ -3,8 +3,8 @@
 window.KINETIX_RELEASE = Object.freeze({
   available: true,
   apkUrl:
-    "https://github.com/pitarde/kinetix-fsl-website/releases/download/v1.0.13/kinetix-fsl-v1.0.13-arm64.apk",
-  version: "Version 1.0.13",
-  size: "106 MB",
-  sha256: "635b57c5e2f6571d99eb2f1b985c63b3de69c78e4cfad66d29de3661eb8f274b",
+    "https://github.com/pitarde/kinetix-fsl-website/releases/download/v1.0.14/kinetix-fsl-v1.0.14.apk",
+  version: "Version 1.0.14",
+  size: "117 MB",
+  sha256: "33f4e134d057048bbe73eeb6457c1dac6c2fd50cb48ce907c1ce7740b37e7fef",
 });

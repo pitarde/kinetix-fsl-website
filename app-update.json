@@ -1,8 +1,8 @@
 {
-  "versionCode": 380,
-  "versionName": "1.0.13",
-  "apkUrl": "https://github.com/pitarde/kinetix-fsl-website/releases/download/v1.0.13/kinetix-fsl-v1.0.13-arm64.apk",
-  "sizeBytes": 111061866,
-  "sha256": "635b57c5e2f6571d99eb2f1b985c63b3de69c78e4cfad66d29de3661eb8f274b",
-  "notes": "• Fixed: reactions, comments, shares and reports now update their counts on every post, also further down the feed."
+  "versionCode": 381,
+  "versionName": "1.0.14",
+  "apkUrl": "https://github.com/pitarde/kinetix-fsl-website/releases/download/v1.0.14/kinetix-fsl-v1.0.14.apk",
+  "sizeBytes": 122339821,
+  "sha256": "33f4e134d057048bbe73eeb6457c1dac6c2fd50cb48ce907c1ce7740b37e7fef",
+  "notes": "• New: the app now installs on phones with 32-bit Android too (for example the Infinix Smart 9). Nothing changes on other phones."
 }
