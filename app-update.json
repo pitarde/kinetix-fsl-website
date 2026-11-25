@@ -1,8 +1,8 @@
 {
-  "versionCode": 381,
-  "versionName": "1.0.14",
-  "apkUrl": "https://github.com/pitarde/kinetix-fsl-website/releases/download/v1.0.14/kinetix-fsl-v1.0.14.apk",
-  "sizeBytes": 122339821,
-  "sha256": "33f4e134d057048bbe73eeb6457c1dac6c2fd50cb48ce907c1ce7740b37e7fef",
-  "notes": "• New: the app now installs on phones with 32-bit Android too (for example the Infinix Smart 9). Nothing changes on other phones."
+  "versionCode": 382,
+  "versionName": "1.0.15",
+  "apkUrl": "https://github.com/pitarde/kinetix-fsl-website/releases/download/v1.0.15/kinetix-fsl-v1.0.15.apk",
+  "sizeBytes": 122429417,
+  "sha256": "90502b14796ed67287c4fcd762a1d2fef263708c8d300e6a22d887fc56840973",
+  "notes": "• New quiz question \"Sign it\": at the end of every level, sign the answer in front of the camera. You have 3 tries."
 }
